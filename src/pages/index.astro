@@ -1,13 +1,14 @@
 ---
 import { Counter } from "../components/counter.tsx";
 import Layout from "../layouts/Layout.astro";
+import { Button } from "../components/Button.tsx";
 ---
 
 <Layout title="Qwik + Astro">
   <main id="app">
     <div class="wrapper">
       <p>astro button</p>
-      <button type="button" class="getGreetingButton">Get greeting</button>
+      <Button />
     </div>
     <div class="wrapper">
       <p>qwik button</p>
@@ -28,15 +29,3 @@ import Layout from "../layouts/Layout.astro";
     gap: 2rem;
   }
 </style>
-
-<script>
-  import { actions } from "astro:actions";
-
-  const button = document.querySelector(".getGreetingButton");
-  button?.addEventListener("click", async () => {
-    const { data, error } = await actions.getGreeting({ name: "Houston" });
-    if (data) {
-      window.alert(data);
-    }
-  });
-</script>
