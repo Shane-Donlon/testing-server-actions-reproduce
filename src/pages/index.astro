@@ -1,4 +1,5 @@
 ---
+import { Counter } from "../components/counter.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -7,6 +8,10 @@ import Layout from "../layouts/Layout.astro";
     <div class="wrapper">
       <p>astro button</p>
       <button type="button" class="getGreetingButton">Get greeting</button>
+    </div>
+    <div class="wrapper">
+      <p>qwik button</p>
+      <Counter />
     </div>
   </main>
 </Layout>
