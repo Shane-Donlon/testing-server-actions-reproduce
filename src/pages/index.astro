@@ -6,60 +6,39 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Qwik + Astro">
-	<main id="app">
-    <div class="brand">
-      <a href="https://qwik.dev" target="_blank" rel="noreferrer">
-        <img src={qwikLogo} class="logo qwik" alt="Qwik logo" />
-      </a>
-      <a href="https://github.com/QwikDev/astro" target="_blank" rel="noreferrer">
-        <span class="love">💜</span>
-      </a>
-      <a href="https://astro.build" target="_blank" rel="noreferrer">
-        <img src={astroLogo} class="logo" alt="Astro logo" />
-      </a>
+  <main id="app">
+    <div class="wrapper">
+      <p>astro button</p>
+      <button type="button" class="getGreetingButton">Get greeting</button>
     </div>
-    <h1>Qwik + Astro</h1>
-		<p class="motivation">
-      Thanks to <a href="https://github.com/QwikDev/astro" title="@QwikDev/astro integration">@QwikDev/astro</a>, seamlessly integrate your Qwik components into your Astro project, as shown with the counter below.
-    </p>
-    <Counter />
-    <p class="read-the-docs">
-      Click on the Qwik and Astro logos to learn more
-    </p>
-	</main>
+    <div class="wrapper">
+      <p>qwik button</p>
+      <Counter />
+    </div>
+  </main>
 </Layout>
 
 <style is:global>
-#app {
+  #app {
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
-  }
-  .brand {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  .love {
-    display: inline-block;
-    font-size: 1.5em;
-  }
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.qwik:hover {
-    filter: drop-shadow(0 0 2em #673ab8aa);
-  }
-  .motivation {
-    font-size: 1.25em;
-    font-weight: 300;
-  }
-  .read-the-docs {
-    color: #888;
+    gap: 2rem;
   }
 </style>
+
+<script>
+  import { actions } from "astro:actions";
+
+  const button = document.querySelector(".getGreetingButton");
+  button?.addEventListener("click", async () => {
+    const { data, error } = await actions.getGreeting({ name: "Houston" });
+    if (data) {
+      window.alert(data);
+    }
+  });
+</script>
