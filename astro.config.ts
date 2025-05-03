@@ -9,7 +9,5 @@ import node from "@astrojs/node";
 export default defineConfig({
   output: "server",
   integrations: [qwikdev()],
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: netlify(),
 });

@@ -20,8 +20,9 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/netlify": "^6.3.1",
+    "@astrojs/node": "^9.2.1",
     "@builder.io/qwik": "^1.12",
-    "@qwikdev/astro": "^0.7",
+    "@qwikdev/astro": "https://pkg.pr.new/QwikDev/astro/@qwikdev/astro@882c7cc",
     "astro": "^5.1"
   },
   "devDependencies": {

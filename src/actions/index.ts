@@ -7,6 +7,7 @@ export const server = {
       name: z.string(),
     }),
     handler: async (input) => {
+      console.log("Server action called with input:", input);
       return `Hello, ${input.name}!`;
     },
   }),
